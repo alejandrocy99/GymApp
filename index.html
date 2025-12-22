@@ -206,9 +206,9 @@
                             <h1 className="text-2xl font-bold text-white">Hola, Atleta</h1>
                             <p className="text-sm text-gray-400">Objetivo: Ganancia Muscular</p>
                         </div>
-                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
-                            M
-                        </div>
+                        <button onClick={() => window.dispatchEvent(new CustomEvent('open-settings'))} className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                            <Icon name="settings" className="text-xl" />
+                        </button>
                     </header>
                     {/* Macros Card */}
                     <div className="bg-surface p-5 rounded-2xl shadow-lg border border-white/5 relative overflow-hidden">
@@ -260,7 +260,8 @@
                 <div className="space-y-4 pb-20">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-xl font-bold">Plan Nutricional</h2>
-                        <button onClick={mockScan} className="flex items-center gap-2 bg-blue-600/20 text-blue-400 px-3 py-1.5 rounded-lg text-xs font-bold border border-blue-500/30">
+                        <h2 className="text-xl font-bold">Plan Nutricional</h2>
+                        <button onClick={mockScan} className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg shadow-blue-900/20 active:scale-95 transition-transform">
                             <Icon name="center_focus_weak" className="text-sm" /> Vision AI
                         </button>
                     </div>
@@ -428,6 +429,106 @@
                 </div>
             );
         };
+        // --- Vision AI Components ---
+        const SettingsModal = ({ apiKey, setApiKey, onClose }) => {
+            const [input, setInput] = useState(apiKey || '');
+            const save = () => {
+                setApiKey(input);
+                onClose();
+            };
+            return (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                    <div className="bg-surface border border-white/10 p-6 rounded-2xl w-full max-w-sm shadow-2xl">
+                        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+                            <Icon name="settings" className="text-primary" /> Configuración AI
+                        </h2>
+                        <p className="text-sm text-gray-400 mb-4">Introduce tu Google Gemini API Key para activar Vision AI.</p>
+                        <input
+                            type="password"
+                            placeholder="Pegar API Key aquí..."
+                            className="w-full bg-black/30 border border-white/10 rounded-lg p-3 text-white focus:border-primary/50 outline-none mb-4"
+                            value={input}
+                            onChange={e => setInput(e.target.value)}
+                        />
+                        <div className="flex gap-2">
+                            <button onClick={onClose} className="flex-1 py-2 rounded-lg bg-gray-700 text-white font-bold">Cancelar</button>
+                            <button onClick={save} className="flex-1 py-2 rounded-lg bg-primary text-black font-bold">Guardar</button>
+                        </div>
+                        <div className="mt-4 text-xs text-center text-gray-500">
+                            <a href="https://aistudio.google.com/app/apikey" target="_blank" className="underline hover:text-primary">Conseguir API Key gratis</a>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const CameraModal = ({ isOpen, onClose, onCapture }) => {
+            const videoRef = React.useRef(null);
+            const [stream, setStream] = useState(null);
+            const [facingMode, setFacingMode] = useState('environment');
+            useEffect(() => {
+                if (isOpen) startCamera();
+                return () => stopCamera();
+            }, [isOpen, facingMode]);
+            const startCamera = async () => {
+                try {
+                    if (stream) stopCamera();
+                    const newStream = await navigator.mediaDevices.getUserMedia({
+                        video: { facingMode: facingMode }
+                    });
+                    setStream(newStream);
+                    if (videoRef.current) videoRef.current.srcObject = newStream;
+                } catch (err) {
+                    console.error("Camera Error:", err);
+                    alert("No se pudo acceder a la cámara. Asegúrate de dar permisos.");
+                    onClose();
+                }
+            };
+            const stopCamera = () => {
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                    setStream(null);
+                }
+            };
+            const capture = () => {
+                if (!videoRef.current) return;
+                const canvas = document.createElement('canvas');
+                canvas.width = videoRef.current.videoWidth;
+                canvas.height = videoRef.current.videoHeight;
+                canvas.getContext('2d').drawImage(videoRef.current, 0, 0);
+                // Convert to base64 (jpeg)
+                const imageBase64 = canvas.toDataURL('image/jpeg', 0.8).split(',')[1];
+                stopCamera();
+                onCapture(imageBase64);
+            };
+            if (!isOpen) return null;
+            return (
+                <div className="fixed inset-0 z-50 bg-black flex flex-col">
+                    <div className="relative flex-1 bg-black overflow-hidden flex items-center justify-center">
+                        <video ref={videoRef} autoPlay playsInline className="absolute w-full h-full object-cover"></video>
+                        {/* Overlay Grid */}
+                        <div className="absolute inset-0 border-[30px] border-black/30 pointer-events-none">
+                            <div className="w-full h-full border-2 border-primary/50 opacity-50 relative">
+                                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
+                                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary"></div>
+                                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary"></div>
+                                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="h-32 bg-black flex items-center justify-around px-10 pb-6 pt-2">
+                        <button onClick={onClose} className="p-3 rounded-full bg-gray-800 text-white">
+                            <Icon name="close" />
+                        </button>
+                        <button onClick={capture} className="w-16 h-16 rounded-full border-4 border-white flex items-center justify-center bg-transparent active:scale-90 transition-transform">
+                            <div className="w-14 h-14 rounded-full bg-white"></div>
+                        </button>
+                        <button onClick={() => setFacingMode(prev => prev === 'user' ? 'environment' : 'user')} className="p-3 rounded-full bg-gray-800 text-white">
+                            <Icon name="flip_camera_ios" />
+                        </button>
+                    </div>
+                </div>
+            );
+        };
         // --- Main App ---
         const App = () => {
             const [tab, setTab] = useState('dashboard');
@@ -459,16 +560,94 @@
                 newDiet[index].consumed = !newDiet[index].consumed;
                 setData(prev => ({ ...prev, diet: newDiet }));
             };
+            // --- Vision AI Logic ---
+            const [apiKey, setApiKey] = useState(() => localStorage.getItem('gemini_api_key') || '');
+            const [showSettings, setShowSettings] = useState(false);
+            const [showCamera, setShowCamera] = useState(false);
+            const [analyzing, setAnalyzing] = useState(false);
+            useEffect(() => {
+                localStorage.setItem('gemini_api_key', apiKey);
+            }, [apiKey]);
+            useEffect(() => {
+                const openSettings = () => setShowSettings(true);
+                window.addEventListener('open-settings', openSettings);
+                return () => window.removeEventListener('open-settings', openSettings);
+            }, []);
             const mockScan = () => {
-                const newDiet = [...data.diet];
-                const lunch = newDiet.find(m => m.id === 'lunch');
-                if (lunch && !lunch.consumed) {
-                    lunch.consumed = true;
+                if (!apiKey) {
+                    alert("⚠️ Configura tu API Key primero.");
+                    setShowSettings(true);
+                    return;
+                }
+                setShowCamera(true);
+            };
+            const handleImageCaptured = async (base64Image) => {
+                setShowCamera(false);
+                setAnalyzing(true);
+                try {
+                    // Call Gemini API
+                    const PROMPT = "Analiza esta imagen de comida. Identifica el nombre del plato principal, estima las calorías aproximadas, y desglosa los macros (proteína, carbohidratos, grasas). Devuelve SOLO un objeto JSON válido con este formato, sin markdown ni texto adicional: { \"name\": \"Nombre del plato\", \"calories\": 0, \"macros\": { \"p\": 0, \"c\": 0, \"f\": 0 } }";
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [
+                                    { text: PROMPT },
+                                    { inline_data: { mime_type: "image/jpeg", data: base64Image } }
+                                ]
+                            }]
+                        })
+                    });
+                    const data = await response.json();
+                    if (!data.candidates || !data.candidates[0].content) {
+                        throw new Error("No se pudo reconocer la imagen.");
+                    }
+                    const rawText = data.candidates[0].content.parts[0].text;
+                    const cleanJson = rawText.replace(/```json|```/g, '').trim();
+                    const result = JSON.parse(cleanJson);
+                    // Update Diet
+                    const newDiet = [...data.diet];
+                    // Logic: Replace the first unconsumed meal OR add a new one?
+                    // Let's replace "Comida" (Lunch) if available, or just push a new "Smart Meal".
+                    // User request: "Detecte alimentos". Let's insert it into the current day.
+                    // To keep it simple for this UI, we'll try to fill the next unconsumed slot, OR replace 'lunch' if it's the usual time.
+                    // Actually, let's just Overwrite the 'Comida' slot for demonstration or add a "Detected" slot?
+                    // The prompt said "Lunch" in the mock. Let's make it smarter:
+                    // Find first empty slot? Or just append? Appending is safer.
+                    // But the UI expects fixed IDs? The UI map loops over `diet`. We can push.
+                    const newMeal = {
+                        id: `ai_${Date.now()}`,
+                        name: result.name || 'Comida Detectada',
+                        items: 'Detectado por Vision AI',
+                        calories: result.calories,
+                        macros: result.macros,
+                        consumed: true // Auto-consume? Yes.
+                    };
+                    // Optional: Try to match it to a standard slot time-wise?
+                    // For now, let's just append it to the list so user sees it clearly.
+                    // Or ask user confirmation? The prompt implies "Detect and log".
+                    // Let's Append.
+                    // newDiet.push(newMeal);
+                    // WAIT: The UI has 4 fixed slots usually. If we push, it might break layout if not scrollable?
+                    // Layout is `space-y-4`, it handles lists fine.
+                    // Let's PUT IT AT THE TOP or AFTER current meal?
+                    // Let's replace the Logic of 'mockScan' which updated Lunch.
+                    // Let's start by updating "Comida" if it exists and isn't done, else append.
+                    const lunchIndex = newDiet.findIndex(m => m.id === 'lunch');
+                    if (lunchIndex >= 0 && !newDiet[lunchIndex].consumed) {
+                        newDiet[lunchIndex] = { ...newDiet[lunchIndex], ...newMeal, id: 'lunch' }; // Keep ID
+                        alert(`✅ ${result.name} registrado en Comida.\n${result.calories} kcal`);
+                    } else {
+                        newDiet.push(newMeal);
+                        alert(`✅ ${result.name} añadido a la dieta.\n${result.calories} kcal`);
+                    }
                     setData(prev => ({ ...prev, diet: newDiet }));
-                    alert("✅ VISION AI: Escaneo completado.\n\nComida registrada automáticamente.");
-                    setTab('dashboard');
-                } else {
-                    alert("📷 VISION AI: No se detectó comida nueva o ya fue registrada.");
+                } catch (err) {
+                    console.error("AI Error:", err);
+                    alert("❌ Error analizando la imagen.\nVerifica tu API Key o intenta de nuevo.");
+                } finally {
+                    setAnalyzing(false);
                 }
             };
             // Enhanced Exercise Update
@@ -544,6 +723,16 @@
                     {tab === 'diet' && <Diet diet={data.diet} updateDiet={updateDiet} toggleMeal={toggleMeal} mockScan={mockScan} />}
                     {tab === 'routine' && <Routine history={data.history} exercises={data.exercises} updateExercise={updateExercise} />}
                     <TabBar activeTab={tab} setTab={setTab} />
+                    {/* Modals */}
+                    {showSettings && <SettingsModal apiKey={apiKey} setApiKey={setApiKey} onClose={() => setShowSettings(false)} />}
+                    {showCamera && <CameraModal isOpen={showCamera} onClose={() => setShowCamera(false)} onCapture={handleImageCaptured} />}
+                    {analyzing && (
+                        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur">
+                            <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+                            <h2 className="text-xl font-bold text-white animate-pulse">Analizando Alimentos...</h2>
+                            <p className="text-gray-400 text-sm">Consultando a Gemini AI</p>
+                        </div>
+                    )}
                 </div>
             );
         };
