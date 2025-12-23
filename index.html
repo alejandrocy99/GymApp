@@ -95,58 +95,62 @@
         ];
         const WORKOUT_ROUTINE = {
             'Lunes': {
-                focus: 'Pecho A / Tríceps / Hombro',
+                focus: 'Empuje (Pecho/Hombro/Tríceps)',
                 exercises: [
-                    { id: 'l1', name: 'Press Banca Plano', sets: '4x8-10' },
-                    { id: 'l2', name: 'Press Inclinado Mancuernas', sets: '3x10-12' },
-                    { id: 'l3', name: 'Aperturas', sets: '3x12-15' },
-                    { id: 'l4', name: 'Press Militar', sets: '4x8-10' },
-                    { id: 'l5', name: 'Elevaciones Laterales', sets: '4x12-15' },
-                    { id: 'l6', name: 'Extensiones Tríceps Polea', sets: '4x12-15' }
+                    { id: 'push1', name: 'Press Banca Plano Barra', sets: '4x6-8 / 2-3\'' },
+                    { id: 'push2', name: 'Press Inclinado Mancuernas', sets: '3x8-10 / 2-3\'' },
+                    { id: 'push3', name: 'Press Militar Mancuernas', sets: '3x8-10 / 2-3\'' },
+                    { id: 'push4', name: 'Aperturas en Polea', sets: '3x12-15 / 60-90s' },
+                    { id: 'push5', name: 'Elevaciones Laterales', sets: '3x12-15 / 60-90s' },
+                    { id: 'push6', name: 'Fondos o Press Cerrado', sets: '3x8-10 / 2-3\'' },
+                    { id: 'push7', name: 'Tríceps Polea Cuerda', sets: '2x12-15 / 60-90s' }
                 ]
             },
             'Martes': {
-                focus: 'Espalda / Bíceps',
+                focus: 'Tracción (Espalda/Bíceps)',
                 exercises: [
-                    { id: 'm1', name: 'Jalón al Pecho', sets: '4x10-12' },
-                    { id: 'm2', name: 'Remo Gironda', sets: '4x10-12' },
-                    { id: 'm3', name: 'Pull Over Polea', sets: '3x12-15' },
-                    { id: 'm4', name: 'Curl Barra Z', sets: '4x10-12' },
-                    { id: 'm5', name: 'Curl Martillo', sets: '3x10-12' },
-                    { id: 'm6', name: 'Face Pull', sets: '3x15' }
+                    { id: 'pull1', name: 'Dominadas o Jalón Neutro', sets: '4x6-10 / 2-3\'' },
+                    { id: 'pull2', name: 'Remo con Barra', sets: '3x6-8 / 2-3\'' },
+                    { id: 'pull3', name: 'Remo Polea Baja', sets: '3x10-12 / 2-3\'' },
+                    { id: 'pull4', name: 'Facepull', sets: '3x12-15 / 60-90s' },
+                    { id: 'pull5', name: 'Curl Bíceps Barra', sets: '3x8-10 / 60-90s' },
+                    { id: 'pull6', name: 'Curl Martillo', sets: '2x10-12 / 60-90s' },
+                    { id: 'pull7', name: 'Encogimientos Trapecio', sets: '2x10-12 / 60-90s' }
                 ]
             },
             'Miércoles': {
-                focus: 'Pierna Completa',
+                focus: 'Pierna A (Cuádriceps)',
                 exercises: [
-                    { id: 'x1', name: 'Sentadilla Libre/Multipower', sets: '4x6-8' },
-                    { id: 'x2', name: 'Prensa 45º', sets: '4x10-12' },
-                    { id: 'x3', name: 'Peso Muerto Rumano', sets: '4x8-10' },
-                    { id: 'x4', name: 'Extensiones Cuádriceps', sets: '3x15' },
-                    { id: 'x5', name: 'Curl Femoral Tumbado', sets: '3x12-15' },
-                    { id: 'x6', name: 'Gemelo en Prensa', sets: '4x15-20' }
+                    { id: 'leg1', name: 'Sentadilla', sets: '4x6-8 / 2-3\'' },
+                    { id: 'leg2', name: 'Prensa Inclinada', sets: '3x8-10 / 2-3\'' },
+                    { id: 'leg3', name: 'Zancadas/Sentadilla Búlgara', sets: '3x10-12 / 60-90s' },
+                    { id: 'leg4', name: 'Extensiones Cuádriceps', sets: '3x12-15 / 60-90s' },
+                    { id: 'leg5', name: 'Peso Muerto Rumano', sets: '3x8-10 / 2-3\'' },
+                    { id: 'leg6', name: 'Curl Femoral Tumbado', sets: '2x10-12 / 60-90s' },
+                    { id: 'leg7', name: 'Gemelos Sentado', sets: '3x12-15 / 60-90s' }
                 ]
             },
             'Jueves': {
-                focus: 'Pecho B / Hombro / Fuerza',
+                focus: 'Torso (Hipertrofia)',
                 exercises: [
-                    { id: 'j1', name: 'Peso Muerto Convencional', sets: '3x6 (Fuerza)' },
-                    { id: 'j2', name: 'Press Inclinado Mancuernas', sets: '4x8-10' },
-                    { id: 'j3', name: 'Fondos en Paralelas', sets: '3xFall' },
-                    { id: 'j4', name: 'Press Arnold', sets: '3x10-12' },
-                    { id: 'j5', name: 'Pájaros (Hombro Posterior)', sets: '3x15' },
-                    { id: 'j6', name: 'Press Francés', sets: '3x10-12' }
+                    { id: 'torso1', name: 'Press Inclinado Barra', sets: '3x6-8 / 2-3\'' },
+                    { id: 'torso2', name: 'Remo con Mancuerna', sets: '3x8-10 / 2-3\'' },
+                    { id: 'torso3', name: 'Press Pecho Máquina', sets: '3x10-12 / 2-3\'' },
+                    { id: 'torso4', name: 'Jalón Al Pecho', sets: '3x10-12 / 60-90s' },
+                    { id: 'torso5', name: 'Elev. Laterales Máquina', sets: '3x12-15 / 60-90s' },
+                    { id: 'torso6', name: 'Curl Inclinado', sets: '2x10-12 / 60-90s' },
+                    { id: 'torso7', name: 'Extensión Tríceps Polea', sets: '2x12-15 / 60-90s' }
                 ]
             },
             'Viernes': {
-                focus: 'Full Body / Brazos',
+                focus: 'Pierna B (Femoral/Glúteo)',
                 exercises: [
-                    { id: 'v1', name: 'Dominadas', sets: '4xFall' },
-                    { id: 'v2', name: 'Zancadas', sets: '3x12/pierna' },
-                    { id: 'v3', name: 'Curl Bíceps Scott', sets: '3x12' },
-                    { id: 'v4', name: 'Tríceps Copa', sets: '3x12' },
-                    { id: 'v5', name: 'Elevaciones Frontales', sets: '3x12' },
-                    { id: 'v6', name: 'Abdominales (Rueda/Plancha)', sets: '4 Sets' }
+                    { id: 'legb1', name: 'PM Rumano', sets: '4x6-8 / 2-3\'' },
+                    { id: 'legb2', name: 'Hip Thrust', sets: '3x8-10 / 2-3\'' },
+                    { id: 'legb3', name: 'Sentadilla Hack', sets: '3x10-12 / 2-3\'' },
+                    { id: 'legb4', name: 'Curl Femoral Sentado', sets: '3x10-12 / 60-90s' },
+                    { id: 'legb5', name: 'Aductores Máquina', sets: '2x12-15 / 60-90s' },
+                    { id: 'legb6', name: 'Gemelos De Pie', sets: '3x12-15 / 60-90s' }
                 ]
             }
         };
@@ -297,28 +301,125 @@
                 </div>
             );
         };
-        const Routine = ({ history, exercises, updateExercise }) => {
-            const [selectedDay, setSelectedDay] = useState('Lunes');
-            const checkForceAlert = (day) => {
-                const dayHistory = history[day] || [];
-                // Needs at least 2 sessions to possibly have a "streak" of 2 weeks
-                if (dayHistory.length < 2) return false;
-                let streak = 0;
-                for (let i = dayHistory.length - 1; i >= 0; i--) {
-                    const session = dayHistory[i];
-                    if (session.maintained) {
-                        break;
-                    }
-                    streak++;
+        // --- Advanced Components ---
+        const Timer = ({ duration, isActive, onComplete, onAdd }) => {
+            const [timeLeft, setTimeLeft] = useState(duration);
+
+            useEffect(() => {
+                setTimeLeft(duration);
+            }, [duration, isActive]);
+
+            useEffect(() => {
+                let interval;
+                if (isActive && timeLeft > 0) {
+                    interval = setInterval(() => {
+                        setTimeLeft(prev => prev - 1);
+                    }, 1000);
+                } else if (timeLeft === 0 && isActive) {
+                    onComplete();
                 }
-                // If streak >= 2 (2 clean sessions), SHOW ALERT
-                return streak >= 2;
-            };
-            const dayRoutine = WORKOUT_ROUTINE[selectedDay];
-            const forceAlert = checkForceAlert(selectedDay);
+                return () => clearInterval(interval);
+            }, [isActive, timeLeft, onComplete]);
+
+            if (!isActive) return null;
+
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            const progress = (timeLeft / duration) * 100;
+
             return (
-                <div className="h-full flex flex-col pb-20">
-                    <div className="flex overflow-x-auto gap-2 mb-6 pb-2 no-scrollbar">
+                <div className="fixed bottom-24 left-1/2 -translate-x-1/2 w-[90%] max-w-sm bg-surface/95 backdrop-blur border border-primary/20 p-3 rounded-2xl shadow-2xl z-40 flex items-center justify-between animate-slide-up">
+                    <div className="flex items-center gap-4">
+                        <div className="relative w-12 h-12 flex items-center justify-center">
+                            <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                                <path className="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="3" />
+                                <path className="text-primary transition-all duration-1000 ease-linear" strokeDasharray={`${progress}, 100`} d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="3" />
+                            </svg>
+                            <span className="absolute text-xs font-bold text-white font-mono">
+                                {mins}:{secs < 10 ? '0' : ''}{secs}
+                            </span>
+                        </div>
+                        <div>
+                            <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">Descanso</p>
+                            <p className="text-sm font-semibold text-white">Recupérate bien</p>
+                        </div>
+                    </div>
+                    <div className="flex gap-2">
+                        <button onClick={onAdd} className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors">
+                            <Icon name="more_time" className="text-xl" />
+                        </button>
+                        <button onClick={onComplete} className="bg-red-500/20 hover:bg-red-500/40 text-red-500 p-2 rounded-full transition-colors">
+                            <Icon name="close" className="text-xl" />
+                        </button>
+                    </div>
+                    {/* Audio element for alarm */}
+                    <audio id="timer-alarm" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+                </div>
+            );
+        };
+
+        const SetRow = ({ idx, set, onUpdate, onCheck }) => {
+            return (
+                <div className={`grid grid-cols-10 gap-2 items-center transition-all ${set.done ? 'opacity-50' : 'opacity-100'}`}>
+                    <div className="col-span-1 flex justify-center">
+                        <div className="w-5 h-5 rounded-full bg-white/5 flex items-center justify-center text-xs font-bold text-gray-500">
+                            {idx + 1}
+                        </div>
+                    </div>
+                    <div className="col-span-2">
+                        <input
+                            type="number"
+                            placeholder="kg"
+                            value={set.kg}
+                            onChange={(e) => onUpdate('kg', e.target.value)}
+                            className="w-full bg-black/20 border border-white/5 rounded text-center text-sm py-1 focus:border-primary/50 outline-none text-white placeholder-gray-700"
+                        />
+                    </div>
+                    <div className="col-span-2">
+                        <input
+                            type="number"
+                            placeholder="reps"
+                            value={set.reps}
+                            onChange={(e) => onUpdate('reps', e.target.value)}
+                            className="w-full bg-black/20 border border-white/5 rounded text-center text-sm py-1 focus:border-primary/50 outline-none text-white placeholder-gray-700"
+                        />
+                    </div>
+                    <div className="col-span-1"></div>
+                    <div className="col-span-4 flex justify-end">
+                        <button
+                            onClick={() => onCheck(!set.done)}
+                            className={`w-full py-1.5 rounded-lg flex items-center justify-center gap-2 text-xs font-bold transition-all ${set.done ? 'bg-primary text-black shadow-lg shadow-primary/20 scale-95' : 'bg-white/5 text-gray-400 hover:bg-white/10'}`}
+                        >
+                            {set.done ? <Icon name="check" className="text-sm" /> : <span>Completar</span>}
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        const Routine = ({ history, exercises, updateSet, triggerTimer, timerState, setTimerState }) => {
+            const [selectedDay, setSelectedDay] = useState('Lunes');
+
+            // Helper to parsing "4x6-8 / 2-3'"
+            const parseRoutine = (setStr) => {
+                // Example: "4x6-8 / 2-3'"
+                // Regex to find sets (start of string)
+                const setsMatch = setStr.match(/^(\d+)x/);
+                const sets = setsMatch ? parseInt(setsMatch[1]) : 3;
+
+                // Rest parsing
+                let rest = 90; // default 90s
+                if (setStr.includes("2-3'")) rest = 150; // avg of 120-180
+                if (setStr.includes("60-90s")) rest = 75;
+
+                return { sets, rest };
+            };
+
+            const dayRoutine = WORKOUT_ROUTINE[selectedDay];
+
+            return (
+                <div className="h-full flex flex-col pb-24">
+                    <div className="flex overflow-x-auto gap-2 mb-4 pb-2 no-scrollbar px-1">
                         {DAYS.map(day => (
                             <button
                                 key={day}
@@ -329,106 +430,83 @@
                             </button>
                         ))}
                     </div>
+
                     {dayRoutine ? (
-                        <div className="flex-1 space-y-4">
-                            <div className="flex justify-between items-center">
+                        <div className="flex-1 overflow-y-auto space-y-6 pr-1">
+                            <div className="flex justify-between items-center mb-2">
                                 <h2 className="text-lg font-bold text-white uppercase tracking-wider">{dayRoutine.focus}</h2>
-                                {forceAlert && (
-                                    <div className="animate-pulse bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-black border border-red-500/50">
-                                        ¡Sube +2.5kg!
-                                    </div>
-                                )}
                             </div>
-                            {dayRoutine.exercises.map((ex, idx) => (
-                                <ExerciseRow
-                                    key={ex.id}
-                                    exercise={ex}
-                                    status={exercises[ex.id] || {}}
-                                    update={(kg, done, maintain) => updateExercise(ex.id, selectedDay, kg, done, maintain)}
-                                />
-                            ))}
+                            {dayRoutine.exercises.map((ex) => {
+                                const meta = parseRoutine(ex.sets);
+                                const exerciseData = exercises[ex.id] || { sets: [] };
+
+                                // Ensure we have enough set slots based on the routine 
+                                // (Auto-migration/Initialization)
+                                const currentSets = exerciseData.sets || [];
+                                const displaySets = [];
+                                for (let i = 0; i < meta.sets; i++) {
+                                    displaySets.push(currentSets[i] || { kg: '', reps: '', done: false });
+                                }
+
+                                return (
+                                    <div key={ex.id} className="bg-surface rounded-xl p-4 border border-white/5">
+                                        <div className="flex justify-between items-start mb-3">
+                                            <h3 className="font-bold text-white text-base leading-tight w-3/4">{ex.name}</h3>
+                                            <span className="text-xs font-mono text-gray-500 bg-black/20 px-2 py-1 rounded">{ex.sets}</span>
+                                        </div>
+
+                                        {/* Headers */}
+                                        <div className="grid grid-cols-10 gap-2 mb-2 text-[10px] uppercase font-bold text-gray-500 tracking-wider text-center">
+                                            <div className="col-span-1">Set</div>
+                                            <div className="col-span-2">Kg</div>
+                                            <div className="col-span-2">Reps</div>
+                                            <div className="col-span-1"></div>
+                                            <div className="col-span-4">Estado</div>
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            {displaySets.map((set, idx) => (
+                                                <SetRow
+                                                    key={idx}
+                                                    idx={idx}
+                                                    set={set}
+                                                    onUpdate={(field, val) => updateSet(ex.id, idx, field, val)}
+                                                    onCheck={(done) => {
+                                                        const wasDone = set.done;
+                                                        updateSet(ex.id, idx, 'done', done);
+                                                        // Trigger Timer if checking (not unchecking)
+                                                        if (done && !wasDone) {
+                                                            triggerTimer(meta.rest);
+                                                        }
+                                                    }}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     ) : (
                         <div className="flex items-center justify-center h-40 text-gray-500">
                             Descanso / No asignado
                         </div>
                     )}
+
+                    <Timer
+                        duration={timerState.duration}
+                        isActive={timerState.isActive}
+                        onComplete={() => {
+                            setTimerState(prev => ({ ...prev, isActive: false }));
+                            // document.getElementById('timer-alarm')?.play();
+                            if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+                            alert("¡Tiempo de descanso terminado! 🔔");
+                        }}
+                        onAdd={() => setTimerState(prev => ({ ...prev, duration: prev.duration + 30 }))}
+                    />
                 </div>
             );
         };
-        const ExerciseRow = ({ exercise, status, update }) => {
-            // Validate if "Done" is valid for TODAY
-            const today = getTodayString();
-            const isDoneToday = status.lastDone === today;
-            // Local state for input before confirming? No, sync directly for simple UX
-            // Or maybe sync on blur. Let's sync on change for now but persist in App.
-            const [localKg, setLocalKg] = useState(status.kg || '');
-            // Sync local state if prop changes (e.g. on load)
-            useEffect(() => {
-                if (status.kg !== undefined) setLocalKg(status.kg);
-            }, [status.kg]);
-            const toggle = () => {
-                // If currently done, uncheck (false, status.maintained). 
-                // If not done, check (true, status.maintained || false)
-                update(localKg, !isDoneToday, status.maintained || false); // Keep current maintain status if unchecking... wait.
-                // Reset maintained if unchecking? User said "exercises se dejen de marca". 
-                // Ideally maintain is bound to the completion.
-            };
-            const handleKgChange = (e) => {
-                const val = e.target.value;
-                setLocalKg(val);
-                // Update parent immediately so state is saved
-                update(val, isDoneToday, status.maintained || false);
-            };
-            const toggleMaintain = () => {
-                // Only allowed if NOT done... or allowed anytime?
-                // User said: "cuando marco cualquier ejercicio marca lo de sube".
-                // "Maintain" implies "I did it but kept weight". 
-                // So usually toggle maintain BEFORE or AFTER checking?
-                // Let's allow anytime, but only effective if done.
-                // update(kg, done, !maintained)
-                if (!isDoneToday) {
-                    update(localKg, isDoneToday, !(status.maintained || false));
-                }
-            };
-            return (
-                <div className={`flex flex-col gap-2 p-3 rounded-xl border transition-all duration-300 ${isDoneToday ? 'bg-primary/10 border-primary/30' : 'bg-surface border-white/5'}`}>
-                    <div className="flex items-center gap-3">
-                        <div
-                            onClick={toggle}
-                            className={`w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer transition-colors ${isDoneToday ? 'bg-primary border-primary' : 'border-gray-500 hover:border-gray-300'}`}
-                        >
-                            {isDoneToday && <Icon name="check" className="text-black text-sm font-bold" />}
-                        </div>
-                        <div className="flex-1">
-                            <h4 className={`font-semibold text-sm ${isDoneToday ? 'text-primary' : 'text-gray-200'}`}>{exercise.name}</h4>
-                            <p className="text-xs text-gray-500">{exercise.sets}</p>
-                        </div>
-                        <div className="flex gap-2 items-center">
-                            <input
-                                placeholder="kg"
-                                className="w-16 bg-black/30 border border-white/10 rounded text-center text-sm py-1 focus:border-primary/50 outline-none text-white font-bold"
-                                value={localKg}
-                                onChange={handleKgChange}
-                            />
-                            {/* Reps removed per user request */}
-                        </div>
-                    </div>
-                    {/* Maintain Toggle */}
-                    <div className="flex items-center justify-end gap-2 pr-1">
-                        <label className="text-[10px] text-gray-400 uppercase font-bold tracking-wider cursor-pointer select-none flex items-center gap-2">
-                            Mantener peso
-                            <div
-                                onClick={toggleMaintain}
-                                className={`w-8 h-4 rounded-full relative transition-colors ${status.maintained ? 'bg-orange-500' : 'bg-gray-700'} ${isDoneToday ? 'opacity-50 cursor-not-allowed' : ''}`}
-                            >
-                                <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all ${status.maintained ? 'left-4.5' : 'left-0.5'}`} style={{ left: status.maintained ? 'calc(100% - 14px)' : '2px' }}></div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            );
-        };
+
         // --- Vision AI Components ---
         const SettingsModal = ({ apiKey, setApiKey, onClose }) => {
             const [input, setInput] = useState(apiKey || '');
@@ -529,24 +607,99 @@
                 </div>
             );
         };
+
         // --- Main App ---
         const App = () => {
             const [tab, setTab] = useState('dashboard');
+            // Timer State (Lifted Up)
+            const [timerState, setTimerState] = useState({ isActive: false, duration: 60 });
+
             // State
             const [data, setData] = useState(() => {
-                const saved = localStorage.getItem(VERSION_KEY);
-                return saved ? JSON.parse(saved) : {
-                    water: 0,
-                    diet: DEFAULT_DIET,
-                    history: {},
-                    exercises: {} // { id: { kg: '', lastDone: 'date', maintained: bool } }
-                };
+                const today = getTodayString();
+                const savedJson = localStorage.getItem(VERSION_KEY);
+                let saved = savedJson ? JSON.parse(savedJson) : null;
+
+                // Default initial state
+                if (!saved) {
+                    return {
+                        water: 0,
+                        diet: DEFAULT_DIET,
+                        history: {},
+                        exercises: {},
+                        lastActiveDate: today
+                    };
+                }
+
+                // Daily Reset Logic
+                if (saved.lastActiveDate !== today) {
+                    // Reset Logic needs to define what happens to Exercises?
+                    // User said: "poner todo a cero MENOS EL PESO".
+                    // So we must KEEP the `kg` and `reps` but set `done` to false.
+                    // Loop through all exercises
+                    const resetExercises = {};
+                    Object.keys(saved.exercises).forEach(key => {
+                        const ex = saved.exercises[key];
+                        // If it's the new array format set `done` to false
+                        if (ex.sets && Array.isArray(ex.sets)) {
+                            resetExercises[key] = {
+                                ...ex,
+                                sets: ex.sets.map(s => ({ ...s, done: false }))
+                            };
+                        } else {
+                            // Legacy format migration protection
+                            resetExercises[key] = ex;
+                        }
+                    });
+
+                    return {
+                        ...saved,
+                        water: 0,
+                        diet: saved.diet.map(meal => ({ ...meal, consumed: false })),
+                        exercises: resetExercises,
+                        lastActiveDate: today
+                    };
+                }
+
+                return saved;
             });
             // Persistence
             useEffect(() => {
                 localStorage.setItem(VERSION_KEY, JSON.stringify(data));
             }, [data]);
-            // Actions
+
+            const triggerTimer = (seconds) => {
+                setTimerState({ isActive: true, duration: seconds });
+            };
+
+            // Enhanced Exercise Update (Per Set)
+            const updateSet = (exerciseId, setIndex, field, value) => {
+                setData(prev => {
+                    const prevEx = prev.exercises[exerciseId] || { sets: [] };
+                    const currentSets = [...(prevEx.sets || [])];
+
+                    // Fill gaps if strictly setting a high index (unlikely with map)
+                    while (currentSets.length <= setIndex) {
+                        currentSets.push({ kg: '', reps: '', done: false });
+                    }
+
+                    // Update specific set
+                    currentSets[setIndex] = { ...currentSets[setIndex], [field]: value };
+
+                    return {
+                        ...prev,
+                        exercises: {
+                            ...prev.exercises,
+                            [exerciseId]: {
+                                ...prevEx,
+                                sets: currentSets
+                            }
+                        }
+                    };
+                });
+            };
+
+            // Simple stubs for props not changed in this step (Mocking for context)
             const updateWater = (amount) => {
                 setData(prev => ({ ...prev, water: Math.min(Math.round((prev.water + amount) * 100) / 100, 5) }));
             };
@@ -608,14 +761,7 @@
                     const result = JSON.parse(cleanJson);
                     // Update Diet
                     const newDiet = [...data.diet];
-                    // Logic: Replace the first unconsumed meal OR add a new one?
-                    // Let's replace "Comida" (Lunch) if available, or just push a new "Smart Meal".
-                    // User request: "Detecte alimentos". Let's insert it into the current day.
-                    // To keep it simple for this UI, we'll try to fill the next unconsumed slot, OR replace 'lunch' if it's the usual time.
-                    // Actually, let's just Overwrite the 'Comida' slot for demonstration or add a "Detected" slot?
-                    // The prompt said "Lunch" in the mock. Let's make it smarter:
-                    // Find first empty slot? Or just append? Appending is safer.
-                    // But the UI expects fixed IDs? The UI map loops over `diet`. We can push.
+                    // Logic: Append
                     const newMeal = {
                         id: `ai_${Date.now()}`,
                         name: result.name || 'Comida Detectada',
@@ -624,16 +770,6 @@
                         macros: result.macros,
                         consumed: true // Auto-consume? Yes.
                     };
-                    // Optional: Try to match it to a standard slot time-wise?
-                    // For now, let's just append it to the list so user sees it clearly.
-                    // Or ask user confirmation? The prompt implies "Detect and log".
-                    // Let's Append.
-                    // newDiet.push(newMeal);
-                    // WAIT: The UI has 4 fixed slots usually. If we push, it might break layout if not scrollable?
-                    // Layout is `space-y-4`, it handles lists fine.
-                    // Let's PUT IT AT THE TOP or AFTER current meal?
-                    // Let's replace the Logic of 'mockScan' which updated Lunch.
-                    // Let's start by updating "Comida" if it exists and isn't done, else append.
                     const lunchIndex = newDiet.findIndex(m => m.id === 'lunch');
                     if (lunchIndex >= 0 && !newDiet[lunchIndex].consumed) {
                         newDiet[lunchIndex] = { ...newDiet[lunchIndex], ...newMeal, id: 'lunch' }; // Keep ID
@@ -650,78 +786,21 @@
                     setAnalyzing(false);
                 }
             };
-            // Enhanced Exercise Update
-            const updateExercise = (id, day, kg, done, maintained) => {
-                const today = getTodayString();
-                setData(prev => {
-                    // 1. Update individual exercise state
-                    const newExercises = {
-                        ...prev.exercises,
-                        [id]: {
-                            kg: kg,
-                            lastDone: done ? today : (prev.exercises[id]?.lastDone || ''),
-                            maintained: maintained
-                        }
-                    };
-                    // 2. Check if ALL exercises for this day are done TODAY
-                    // This is for the "Routine History" (clean streak) logic
-                    // We only log to history if the WHOLE routine is completed? 
-                    // Or do we log partial? 
-                    // The previous logic was: "onComplete -> saveWorkout".
-                    // Let's keep it simple: We update history EVERY time an exercise changes? 
-                    // No, that floods history.
-                    // Ideally: We track "Routine Completion".
-                    // For Simplicity in this V5: 
-                    // We will NOT auto-add history on every click. 
-                    // We only care about the *Streak*.
-                    // The streak effectively comes from: "Did I do it last week?".
-                    // But to keep the "2 weeks clean" logic, we DO need history.
-                    // Let's auto-generate a history entry for Today if it doesn't exist?
-                    // Or update the existing entry for Today.
-                    const dayHistory = [...(prev.history[day] || [])];
-                    const todayEntryIndex = dayHistory.findIndex(h => h.date === today);
-                    // Calculate if the day is "maintained" (if ANY exercise is maintained)
-                    // But 'maintained' is passed per exercise.
-                    // If ANY exercise in the routine is 'maintained', the whole session acts as a reset/pause?
-                    // Yes, user said: "toggle 'maintained' -> resets streak".
-                    const isMaintained = maintained; // If this specific exercise is maintained.
-                    // CAUTION: This might overwrite other exercises' status if we just take `maintained`.
-                    // But for the alert logic, if *any* is maintained, streak breaks.
-                    // Implementation: We'll construct a composite "maintained" status for the day.
-                    // Does this routine have ANY maintained exercise?
-                    // We need to look at `newExercises` for all IDs in this day.
-                    const dayRoutine = WORKOUT_ROUTINE[day];
-                    const allIds = dayRoutine ? dayRoutine.exercises.map(e => e.id) : [];
-                    // Check if ALL are done?
-                    const allDone = allIds.every(eid => newExercises[eid]?.lastDone === today);
-                    const anyMaintained = allIds.some(eid => newExercises[eid]?.maintained === true);
-                    if (allDone) {
-                        if (todayEntryIndex >= 0) {
-                            // Update existing
-                            dayHistory[todayEntryIndex] = { date: today, maintained: anyMaintained };
-                        } else {
-                            // Add new
-                            dayHistory.push({ date: today, maintained: anyMaintained });
-                        }
-                    } else {
-                        // If not all done, remove today from history if it exists? 
-                        // Or just leave it? Better to remove it so it doesn't count as a "session" yet.
-                        if (todayEntryIndex >= 0) {
-                            dayHistory.splice(todayEntryIndex, 1);
-                        }
-                    }
-                    return {
-                        ...prev,
-                        exercises: newExercises,
-                        history: { ...prev.history, [day]: dayHistory }
-                    };
-                });
-            };
+
             return (
                 <div className="app-container font-sans text-gray-100 p-4">
                     {tab === 'dashboard' && <Dashboard data={data} updateWater={updateWater} />}
                     {tab === 'diet' && <Diet diet={data.diet} updateDiet={updateDiet} toggleMeal={toggleMeal} mockScan={mockScan} />}
-                    {tab === 'routine' && <Routine history={data.history} exercises={data.exercises} updateExercise={updateExercise} />}
+                    {tab === 'routine' && (
+                        <Routine
+                            history={data.history}
+                            exercises={data.exercises}
+                            updateSet={updateSet}
+                            triggerTimer={triggerTimer}
+                            timerState={timerState}
+                            setTimerState={setTimerState}
+                        />
+                    )}
                     <TabBar activeTab={tab} setTab={setTab} />
                     {/* Modals */}
                     {showSettings && <SettingsModal apiKey={apiKey} setApiKey={setApiKey} onClose={() => setShowSettings(false)} />}
